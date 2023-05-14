@@ -34,10 +34,11 @@ payload = 'SET prez obama'
 msg_length = payload.size
 packed_msg_length = [msg_length].pack('i')
 
+connection = CloudHash::Client.connection.accept
 # Write the length of the message, followed immediately
 # by the message itself.
-client.connection.write(packed_msg_length)
-client.connection.write(payload)
+connection.write(packed_msg_length)
+connection.write(payload)
 
 # puts CloudHash::Client.set 'prez', 'obama'
 # puts CloudHash::Client.get 'prez'

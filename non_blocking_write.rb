@@ -16,3 +16,4 @@ rescue Errno::EAGAIN
   IO.select(nil, [client])
   retry
 end
+
